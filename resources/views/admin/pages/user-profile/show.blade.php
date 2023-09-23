@@ -1,13 +1,13 @@
-@extends('admin.layouts.app')@extends('admin.layouts.app')
+@extends('admin.layouts.app')
 
 @section('title', 'User Profile')
 
 @push('styles')
   <style>
     .image-remove-btn {
-      position: relative;
+      position: absolute;
       cursor: pointer;
-      right: 130px;
+      /* right: 130px; */
       padding: 5px;
       border-radius: 50%;
       background-color: #ddd;

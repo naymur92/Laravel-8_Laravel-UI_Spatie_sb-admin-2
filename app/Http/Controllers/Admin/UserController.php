@@ -179,14 +179,14 @@ class UserController extends Controller
   public function userProfile()
   {
     $user = Auth::user();
-    return view('pages.user-profile.show', compact('user'));
+    return view('admin.pages.user-profile.show', compact('user'));
   }
 
   // edit profile
   public function editUserProfile()
   {
     $user = Auth::user();
-    return view('pages.user-profile.edit', compact('user'));
+    return view('admin.pages.user-profile.edit', compact('user'));
   }
 
   // change profile picture
@@ -260,7 +260,7 @@ class UserController extends Controller
   // change password
   public function changePassword(Request $request)
   {
-    return view('pages.user-profile.change-password');
+    return view('admin.pages.user-profile.change-password');
   }
 
   // update password
