@@ -49,11 +49,13 @@ function isActive($routeName)
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - role management -->
-  <li class="nav-item {{ isActiveLI('dashboard') }}">
-    <a class="nav-link" href="{{ route('dashboard') }}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
-  </li>
+  @canany(['dashboard'])
+    <li class="nav-item {{ isActiveLI('dashboard') }}">
+      <a class="nav-link" href="{{ route('dashboard') }}">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
+  @endcanany
 
   <!-- Divider -->
   <hr class="sidebar-divider">
@@ -71,32 +73,34 @@ function isActive($routeName)
   @endif --}}
 
   {{-- Nav item -permission management --}}
-  <li class="nav-item {{ isActiveLI('permissions') }}">
-    <a class="nav-link {{ isCollapsed(['permissions']) }}" href="{{ route('permissions.index') }}">
-      <i class="fas fa-shield-alt"></i>
-      <span>Permission Management</span>
-    </a>
-  </li>
-  {{-- @canany(['permission-edit', 'permission-list', 'permission-create', 'permission-delete'])
-  @endcanany --}}
+  @canany(['permissions-edit', 'permissions-list', 'permissions-create', 'permissions-delete'])
+    <li class="nav-item {{ isActiveLI('permissions') }}">
+      <a class="nav-link {{ isCollapsed(['permissions']) }}" href="{{ route('permissions.index') }}">
+        <i class="fas fa-shield-alt"></i>
+        <span>Permission Management</span>
+      </a>
+    </li>
+  @endcanany
 
 
   {{-- Nav item -role managements --}}
-  <li class="nav-item {{ isActiveLI('roles') }}">
-    <a class="nav-link {{ isCollapsed(['roles']) }}" href="{{ route('roles.index') }}">
-      <i class="fas fa-user-shield"></i>
-      <span>Role Management</span>
-    </a>
-  </li>
-  {{-- @canany(['role-edit', 'role-list', 'role-create', 'role-delete'])
-  @endcanany --}}
+  @canany(['roles-edit', 'roles-list', 'roles-create', 'roles-delete'])
+    <li class="nav-item {{ isActiveLI('roles') }}">
+      <a class="nav-link {{ isCollapsed(['roles']) }}" href="{{ route('roles.index') }}">
+        <i class="fas fa-user-shield"></i>
+        <span>Role Management</span>
+      </a>
+    </li>
+  @endcanany
 
 
-  <li class="nav-item {{ isActiveLI('users') }}">
-    <a class="nav-link" href="{{ route('users.index') }}">
-      <i class="fas fa-users"></i>
-      <span>User Management</span></a>
-  </li>
+  @canany(['users-edit', 'users-list', 'users-create', 'users-delete'])
+    <li class="nav-item {{ isActiveLI('users') }}">
+      <a class="nav-link" href="{{ route('users.index') }}">
+        <i class="fas fa-users"></i>
+        <span>User Management</span></a>
+    </li>
+  @endcanany
 
   <!-- Heading -->
   {{-- <div class="sidebar-heading">
