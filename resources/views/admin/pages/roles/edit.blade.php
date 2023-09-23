@@ -28,7 +28,8 @@
             @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="_name"><strong>Role Name:</strong></label>
+                <label for="_name"><strong>Role Name</strong> <span class="text-danger"><i
+                      class="fas fa-xs fa-asterisk"></i></span></label>
                 <input type="text" name="name" id="_name"
                   class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $role->name) }}"
                   placeholder="Admin, User Entry Manager, etc.">
@@ -41,19 +42,22 @@
               </div>
 
               <div class="form-group">
-                <label for="_permission" class="mb-3"><strong>Select Permissions:</strong></label>
+                <label for="_permission" class="mb-3"><strong>Select Permissions</strong> <span class="text-danger"><i
+                      class="fas fa-xs fa-asterisk"></i></span></label>
                 <br>
 
                 @foreach ($permissions as $item)
-                  <?php if ($item->id <= 8) {
-                      continue;
-                  } ?>
-                  <label>
+                  @if ($item->id <= 8)
                     <input type="checkbox" name="permission[]" value="{{ $item->id }}"
-                      {{ in_array($item->id, $rolePermissions) ? 'checked' : '' }}>
-                    {{ $item->name }}
-                  </label>
-                  <br>
+                      {{ in_array($item->id, $rolePermissions) ? 'checked' : '' }} hidden>
+                  @else
+                    <label>
+                      <input type="checkbox" name="permission[]" value="{{ $item->id }}"
+                        {{ in_array($item->id, $rolePermissions) ? 'checked' : '' }}>
+                      {{ $item->name }}
+                    </label>
+                    <br>
+                  @endif
                 @endforeach
               </div>
             </div>

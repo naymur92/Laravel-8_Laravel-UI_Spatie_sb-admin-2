@@ -29,7 +29,8 @@
             <div class="card-body">
 
               <div class="form-group">
-                <label for="_name"><strong>Enter Full Name:</strong></label>
+                <label for="_name"><strong>Enter Full Name</strong> <span class="text-danger"><i
+                      class="fas fa-xs fa-asterisk"></i></span></label>
                 <input type="text" name="name" id="_name" value="{{ old('name', $user->name) }}"
                   class="form-control @error('name') is-invalid @enderror">
 
@@ -41,7 +42,8 @@
               </div>
 
               <div class="form-group">
-                <label for="_email"><strong>Enter Email:</strong></label>
+                <label for="_email"><strong>Enter Email</strong> <span class="text-danger"><i
+                      class="fas fa-xs fa-asterisk"></i></span></label>
                 <input type="email" name="email" id="_email" value="{{ old('email', $user->email) }}"
                   class="form-control @error('email') is-invalid @enderror">
 
@@ -74,7 +76,8 @@
                 </div>
               </div> --}}
               <div class="form-group">
-                <label for="_role"><strong>Select Role:</strong></label>
+                <label for="_role"><strong>Select Role</strong> <span class="text-danger"><i
+                      class="fas fa-xs fa-asterisk"></i></span></label>
                 <select name="roles[]" id="_role" class="form-control @error('roles') is-invalid @enderror" multiple>
                   <option value="" selected disabled>Select One/Multiple</option>
 

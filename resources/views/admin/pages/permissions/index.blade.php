@@ -183,7 +183,8 @@
           <div class="modal-body">
             @csrf
 
-            <label class="mb-2"><strong>Permission Name:</strong></label>
+            <label class="mb-2"><strong>Permission Name</strong> <span class="text-danger"><i
+                  class="fas fa-xs fa-asterisk"></i></span></label>
             <div class="form-body px-3">
               <div class="row">
                 <input type="text" id="field0" name="name[]" class="name form-control"
